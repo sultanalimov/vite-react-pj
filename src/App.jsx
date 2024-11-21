@@ -30,7 +30,7 @@ function App() {
       
       {message && <p>{message}</p>}
       
-      <button onClick={showMessage}>Показать сообщение</button>
+      <button onClick={showMessage}>Повысить в должность</button>
       
     </div>
   );
