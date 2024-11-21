@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css'; 
+import './App.css';
 
 function App() {
   const [person, setPerson] = useState({
@@ -13,10 +13,12 @@ function App() {
 
   const [message, setMessage] = useState('');
 
-  const showMessage = () => {
-    setMessage('Привет, ' + person.name + '! Добро пожаловать в команду!');
+  const promotePerson = () => {
+    setPerson((prevPerson) => ({
+      ...prevPerson,
+      position: prevPerson.position === 'Junior' ? 'Middle' : 'Senior'
+    }));
   };
-  
 
   return (
     <div className="App">
@@ -25,13 +27,12 @@ function App() {
       <p><strong>Должность:</strong> {person.position}</p>
       <p><strong>Компания:</strong> {person.company}</p>
       <p><strong>Возраст:</strong> {person.age}</p>
-      <p><strong>Город:</strong> {person.city}</p>
+      <p><strong>Языки программирования:</strong> {person.programmin_languages}</p>
       <p><strong>Опыт работы:</strong> {person.experience}</p>
       
       {message && <p>{message}</p>}
       
-      <button onClick={showMessage}>Повысить в должность</button>
-      
+      <button onClick={promotePerson}>Повысить в должности</button>
     </div>
   );
 }
