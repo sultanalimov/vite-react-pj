@@ -11,6 +11,11 @@ function App() {
     experience: '3 year'
   });
 
+  const [message, setMessage] = useState('');
+
+  const showMessage = () => {
+    setMessage('Привет, ' + person.name + '! Добро пожаловать в команду!');
+  };
   
 
   return (
@@ -23,6 +28,9 @@ function App() {
       <p><strong>Город:</strong> {person.city}</p>
       <p><strong>Опыт работы:</strong> {person.experience}</p>
       
+      {message && <p>{message}</p>}
+      
+      <button onClick={showMessage}>Показать сообщение</button>
       
     </div>
   );
